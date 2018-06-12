@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pizzanet</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            button#link{
+                text-decoration: none;
+                color: #117a8b;
+            }
+            button#link:hover{
+                color: white;
+            }
+        </style>
+    </head>
+    <body class="bg-secondary">
+        <div class="container-fluid bg-secondary">
+            <nav class="navbar navbar-dark bg-dark">
+                <a href="index.html" class="navbar-brand">PizzaNet</a>
+
+                <a href="cadastrar.html"><button class="btn bg-dark" id="link">Cadastrar</button></a>
+                <a><button class="btn bg-dark" id="link" form="lista">Cardápio</button></a>
+                <a href="atualizarID.html"><button class="btn bg-dark" id="link">Atualizar</button></a>
+                <a href="excluir.html"><button class="btn bg-dark" id="link">Excluir</button></a>
+            </nav>
+            <form action="Servlet" method="POST" id="lista">
+                <input type="hidden" value="listar" name="flag">
+            </form>
+        </div>
+        <div class="container">
+            <fieldset>
+                <legend>Excluir</legend>
+                <form action="Servlet" method="POST">
+                    <input type="hidden" value="excluir" name="flag">
+                    ID Pizza: <input type="number" name="idPizza" >
+                    <input type="submit" value="Excluir">
+                </form>
+            </fieldset>
+        </div>
+    </body>
+</html>
