@@ -17,7 +17,7 @@
     </head>
     <body class="bg-secondary">
         <div class="container-fluid bg-secondary">
-            <nav class="navbar navbar-dark bg-dark">
+            <nav class="navbar navbar-dark fixed-top bg-dark">
                 <a href="index.html" class="navbar-brand">PizzaNet</a>
 
                 <a href="cadastrar.html"><button class="btn bg-dark" id="link">Cadastrar</button></a>
