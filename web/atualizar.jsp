@@ -33,22 +33,24 @@
         <div class="container">
             <%
                 Pizza pi = (Pizza) request.getAttribute("pizza");
+                String grande = "", broto = "";
+                if (pi.getTamanhoPizza().equals("Grande")) {
+                    grande = "checked";
+                } else {
+                    broto = "checked";
+                }
             %>
             <form action="Servlet" method="POST">
                 <fieldset>
                     <legend>Atualizar</legend>
                     <input type="hidden" value="atualizar" name="flag">
-                    <input type="hidden" value=<%out.print("\"" + pi.getId() + "\"");%> name="idPizza">
-                    <p>Nome Pizza:<input type="text" name="nomePizza" maxlength="25" size="25" value=<%out.print("\"" + pi.getNomePizza() + "\"");%> ></p>
-                    <p>Grande<input type="radio" value="Grande" name="tamanhoPizza"<%if (pi.getTamanhoPizza().equals("Grande")) {
-                            out.print("checked");
-                        }%>>
-                        Broto<input type="radio" value="Broto" name="tamanhoPizza" <%if (pi.getTamanhoPizza().equals("Broto")) {
-                                out.print("checked");
-                            }%>></p>
-                    <p>Preço: R$<input type="number" step="0.01" name="precoPizza" value=<%out.print("\"" + pi.getPrecoPizza() + "\"");%>></p>
+                    <input type="hidden" value=<%=pi.getId()%> name="idPizza">
+                    <p>Nome Pizza:<input type="text" name="nomePizza" maxlength="25" size="25" value=<%=pi.getNomePizza()%> ></p>
+                    <p>Grande<input type="radio" value="Grande" name="tamanhoPizza"<%=grande%>>
+                        Broto<input type="radio" value="Broto" name="tamanhoPizza" <%=broto%>></p>
+                    <p>Preço: R$<input type="number" step="0.01" name="precoPizza" value=<%=pi.getPrecoPizza()%>></p>
                     <p>Ingredientes:</p>
-                    <p><textarea name="ingredientesPizza" rows="4" cols="32" maxlength="120"><%out.print(pi.getIngredientesPizza());%></textarea></p>
+                    <p><textarea name="ingredientesPizza" rows="4" cols="32" maxlength="120"><%=pi.getIngredientesPizza()%></textarea></p>
                     <p><input type="submit" value="Atualizar"></p>
                 </fieldset>
             </form>
